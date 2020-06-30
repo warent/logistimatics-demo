@@ -16,7 +16,7 @@ export default () => {
       .collection('coordinates')
       .onSnapshot(documentSnapshot => {
         const newCoords = documentSnapshot.docs
-          .map<Coordinate>(snapshot => snapshot.data() as Coordinate)
+          .map<Coordinate>(snapshot => ({ ...snapshot.data(), id: snapshot.id }) as Coordinate)
           .sort((a, b) => a.order - b.order);
         setCoordinates(newCoords);
       });
@@ -24,25 +24,28 @@ export default () => {
   }, []);
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName="Commands">
       <Tab.Screen
         name="Map"
-        component={() => <Map coordinates={coordinates} />}
         options={{
           tabBarLabel: 'Map',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="map" color={color} size={size} />
           ),
-        }} />
+        }}>
+        {() => <Map coordinates={coordinates} />}
+      </Tab.Screen>
       <Tab.Screen
         name="Commands"
-        component={() => <Commands coordinates={coordinates} />}
         options={{
           tabBarLabel: 'Commands',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="forum" color={color} size={size} />
           ),
-        }} />
+        }}
+      >
+        {() => (<Commands coordinates={coordinates} />)}
+      </Tab.Screen>
     </Tab.Navigator>
   )
 }
