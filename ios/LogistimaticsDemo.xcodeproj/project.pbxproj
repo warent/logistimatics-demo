@@ -89,6 +89,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A662586424AAE81000427A93 /* Fonts */,
 				A662584124AADB5100427A93 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* LogistimaticsDemo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -107,6 +108,14 @@
 				13B07F961A680F5B00A75B9A /* LogistimaticsDemo.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A662586424AAE81000427A93 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

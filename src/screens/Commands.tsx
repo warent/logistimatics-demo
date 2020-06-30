@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Platform } from 'react-native';
 
-export default () => {
+type Props = {
+  coordinates: Coordinate[];
+}
+export default ({
+  coordinates
+}: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>LogistimaticsDemo</Text>

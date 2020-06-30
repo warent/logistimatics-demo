@@ -1,29 +1,24 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { StyleSheet, ActivityIndicator } from 'react-native';
 import MapView, { Polyline } from 'react-native-maps';
-import firestore from '@react-native-firebase/firestore';
 import MapMarker from "lib/components/MapMarker";
 
-export default () => {
-
-  const [coordinates, setCoordinates] = useState<Coordinate[]>([]);
-
-  useEffect(() => {
-    const subscriber = firestore()
-      .collection('coordinates')
-      .onSnapshot(documentSnapshot => {
-        const newCoords = documentSnapshot.docs
-          .map<Coordinate>(snapshot => snapshot.data() as Coordinate)
-          .sort((a, b) => a.order - b.order);
-        setCoordinates(newCoords);
-      });
-    return () => subscriber();
-  }, []);
+type Props = {
+  coordinates: Coordinate[];
+}
+export default ({
+  coordinates
+}: Props) => {
 
   const coordComponents = useMemo(() => {
     const result = [];
     for (let i = 0; i < coordinates.length; i++) {
-      result.push(<MapMarker key={`coord-marker-${i}`} coordinate={coordinates[i]} variant={i === 0 ? "start" : i === coordinates.length - 1 ? "end" : "middle"} />);
+      result.push((
+        <MapMarker
+          key={`coord-marker-${i}`}
+          coordinate={coordinates[i]}
+          variant={i === 0 ? "start" : i === coordinates.length - 1 ? "end" : "middle"} />
+      ));
       if (i < coordinates.length - 1) {
         result.push(<Polyline
           key={`coord-line-${i}`}

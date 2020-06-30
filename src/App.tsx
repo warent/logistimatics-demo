@@ -1,3 +1,3 @@
-import Home from "./screens/Home";
+import Commands from "./screens/Commands";
 
-export default Home;
+export default Commands;
