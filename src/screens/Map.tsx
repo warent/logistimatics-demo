@@ -1,9 +1,8 @@
 import React, { useMemo, useEffect, useState } from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
-import MapView, { Polyline, LatLng } from 'react-native-maps';
+import { StyleSheet, ActivityIndicator } from 'react-native';
+import MapView, { Polyline } from 'react-native-maps';
 import firestore from '@react-native-firebase/firestore';
-import MapMarker from "../components/MapMarker";
-
+import MapMarker from "lib/components/MapMarker";
 
 export default () => {
 
@@ -50,7 +49,7 @@ export default () => {
     <>
       <MapView
         style={styles.mapView}
-        initialRegion={coordinates.length > 0 && {
+        initialRegion={{
           ...coordinates[0],
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
