@@ -35,7 +35,14 @@ export default ({
             keyboardType="numeric"
             value={mutableCoord.latitude.toString()}
             onChangeText={val => setMutableCoords(nextVal => ({ ...nextVal, latitude: val }))}
-            onEndEditing={({ nativeEvent: { text } }) => onChange("latitude", +text)}
+            onEndEditing={({ nativeEvent: { text } }) => {
+              const nextValue = +text;
+              if (isNaN(nextValue)) {
+                setMutableCoords(nextVal => ({ ...nextVal, latitude: coordinate.latitude }))
+                return;
+              }
+              onChange("latitude", nextValue);
+            }}
             returnKeyType="done"
           />
         </View>
