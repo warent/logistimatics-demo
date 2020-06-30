@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "185157880246",
+    "firebase_url": "https://logistimatics-demo.firebaseio.com",
+    "project_id": "logistimatics-demo",
+    "storage_bucket": "logistimatics-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185157880246:android:418adc9f87aecb40a91917",
+        "android_client_info": {
+          "package_name": "com.logistimaticsdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "185157880246-683s628oe6n2qrks8d2r5g8f9si6tc4k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQLV1IIi7ZEaP6tP3BC_QvdeoqZ2N9JxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "185157880246-683s628oe6n2qrks8d2r5g8f9si6tc4k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
